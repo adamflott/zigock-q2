@@ -5,12 +5,11 @@
 SRCDIR=../src
 VPATH=$(SRCDIR)
 
-ARCH=i386
 CC=gcc
-BASE_CFLAGS=-m32 -Dstricmp=strcasecmp -DLINUX -DGAME_DLL
+BASE_CFLAGS=-Dstricmp=strcasecmp -DLINUX -DGAME_DLL
 
 # -Wall
-CFLAGS=$(BASE_CFLAGS) -O2 -g -DNDEBUG -fno-strict-aliasing -ffloat-store -pipe
+CFLAGS=$(BASE_CFLAGS) -O2 -g -DNDEBUG -fno-strict-aliasing -ffloat-store -pipe -fPIC
 
 LDFLAGS=-ldl -lm
 SHLIBEXT=so
@@ -74,7 +73,7 @@ depend:
 
 
 install:
-	cp gamei386.so ../quake2/3zb2/gamei386.real.so
+	cp game.so ../quake2/3zb2/game.so
 
 #
 # From "make depend"
